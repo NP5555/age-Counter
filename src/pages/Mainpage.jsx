@@ -12,6 +12,7 @@ function Mainpage() {
     days: 0,
   });
 
+
   const notifyError = (message) => {
     toast.error(message, {
       duration: 4000,
