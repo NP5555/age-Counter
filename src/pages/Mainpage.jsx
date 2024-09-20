@@ -15,10 +15,10 @@ function Mainpage() {
   const notifyError = (message) => {
     toast.error(message, {
       duration: 4000,
-      position: 'top-center',
+      position: "top-center",
       style: {
-        background: '#f87171',
-        color: '#ffffff',
+        background: "#f87171",
+        color: "#ffffff",
       },
     });
   };
@@ -147,7 +147,6 @@ function Mainpage() {
           </button>
         </div>
       </div>
-
       {age !== null && (
         <div className="mt-6 sm:mt-8 p-6 sm:p-10 rounded-3xl shadow-2xl bg-white max-w-xs sm:max-w-lg w-full text-center">
           <div className="mb-4">

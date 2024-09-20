@@ -1,17 +1,31 @@
+import React , {useState} from 'react';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import Login from './pages/Login';
+import Screen from './pages/Screen';
 
-import './App.css';
-import Mainpage from '../src/pages/Mainpage'
-import Header from './pages/Header';
-import Footer from './pages/Footer';
+const App = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-function App() {
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
   return (
-    <>
-      <Header />
-      <Mainpage />
-      <Footer />
-    </>
+    <Router>
+      <div>
+        <Toaster />
+        <Routes>
+          {!isAuthenticated ? (
+            <Route path="/" element={<Login onLogin={handleLogin} />} />
+          ) : (
+            <Route path="/" element={<Screen />} />
+          )}
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
