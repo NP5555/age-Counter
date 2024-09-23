@@ -1,9 +1,22 @@
 import React, { useState } from "react";
-import { toast } from "react-hot-toast";
+import { toast, Toaster } from "react-hot-toast";
 
 const Login = ({ onLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const notifySuccess= (message) => {
+    toast.success(message, {
+      duration: 1000,
+      position: "top-center",
+      style: {
+        background: "white",
+        color: "#07b151",
+      },
+    });
+  };
+
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,11 +31,12 @@ const Login = ({ onLogin }) => {
       return;
     }
 
-    toast.success("Login successful!");
+    notifySuccess("Login successful!");
     onLogin();
   };
 
-  return (
+  return (<>
+< Toaster/>
   <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-400 to-purple-600 px-4 sm:px-6 lg:px-8">
   <div className="shadow-md rounded-xl p-6 sm:p-10 w-full max-w-sm sm:max-w-md bg-white">
     <h2 className="text-2xl sm:text-3xl font-semibold text-center mb-6 text-purple-600">
@@ -74,6 +88,7 @@ const Login = ({ onLogin }) => {
     </form>
   </div>
 </div>
+</>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import  { toast, Toaster } from "react-hot-toast";
 
 function Mainpage() {
   const [day, setDay] = useState("");
@@ -28,7 +28,7 @@ function Mainpage() {
     e.preventDefault();
 
     if (!day || !month || !year) {
-      notifyError("Please fill all the fields.");
+      notifyError("Please plz fill all the fields.");
       return;
     }
 
